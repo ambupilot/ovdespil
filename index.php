@@ -8,8 +8,7 @@ $contributions = include 'data/contributions.php';
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>OV De Spil - Start</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
-</head>
+  <script src="https://cdn.tailwindcss.com"></script></head>
 <body class="flex flex-col min-h-screen font-sans bg-[#f4f4f4] text-gray-800">
   <?php include 'includes/header.php'; ?>
 

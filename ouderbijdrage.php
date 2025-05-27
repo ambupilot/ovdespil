@@ -12,7 +12,7 @@
   <main class="p-6 flex-grow max-w-3xl mx-auto">
     <h1 class="text-3xl font-bold mb-6 text-[#00477e]">Betaal de ouderbijdrage</h1>
     <p class="mb-4">Scan de QR-code of klik op de knop hieronder om te betalen:</p>
-    <img src="qr/qr.png" alt="Betaal QR code" class="w-48 mb-4" />
+    <img src="qr/qr.JPG" alt="Betaal QR code" class="w-48 mb-4" />
     <a href="<?= $link ?>" target="_blank" class="mt-4 inline-block bg-[#00a651] hover:bg-green-600 text-white px-4 py-2 rounded">Betaal nu</a>
   </main>
   <?php include 'includes/footer.php'; ?>

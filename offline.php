@@ -11,7 +11,7 @@
     <img src="/logo_de_spil.jpeg" alt="Logo OV De Spil" class="h-16 mx-auto mb-4">
     <h1 class="text-3xl font-bold text-[#00477e] mb-2">Tijdelijk offline</h1>
     <p class="mb-4">De website van de Oudervereniging is momenteel niet bereikbaar vanwege onderhoud.</p>
-    <p class="text-sm text-gray-600">Kom later terug of neem contact op via <a href="mailto:hallo@ovdespil.nl" class="text-blue-600 underline">hallo@ovdespil.nl</a>.</p>
+    <p class="text-sm text-gray-600">Kom later terug of neem contact op via <a href="mailto:bestuur@ovdespil.nl" class="text-blue-600 underline">hallo@ovdespil.nl</a>.</p>
   </div>
 </body>
 </html>

@@ -1,7 +1,6 @@
 <?php // public/data/budget.php
 return [
-  ["category" => "Educatief materiaal", "amount" => 1200],
-  ["category" => "Feesten", "amount" => 900],
-  ["category" => "Onderhoud speeltuin", "amount" => 500],
+  ["category" => "Educatief materiaal", "total" => 1200, "spent" => 850],
+  ["category" => "Feesten", "total" => 900, "spent" => 700],
+  ["category" => "Onderhoud speeltuin", "total" => 500, "spent" => 300],
 ];
-?>

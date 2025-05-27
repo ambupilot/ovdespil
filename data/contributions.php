@@ -5,4 +5,3 @@ return [
   ["name" => "Sinterklaas", "total" => 1000, "current" => 950],
   ["name" => "Sportdag", "total" => 750, "current" => 500],
 ];
-?>

@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Force trailing slash removal
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+# Verberg .php extensie
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+DirectoryIndex ouderbijdrage.php

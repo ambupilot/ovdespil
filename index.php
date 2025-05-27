@@ -1,4 +1,7 @@
-<?php $contributions = include 'data/contributions.php'; ?>
+<?php
+// public/index.php
+$contributions = include 'data/contributions.php';
+?>
 <!DOCTYPE html>
 <html lang="nl">
 <head>
@@ -9,6 +12,7 @@
 </head>
 <body class="flex flex-col min-h-screen font-sans bg-[#f4f4f4] text-gray-800">
   <?php include 'includes/header.php'; ?>
+
   <main class="p-6 flex-grow max-w-3xl mx-auto">
     <h1 class="text-3xl font-bold mb-6 text-[#00477e]">Overzicht Ouderbijdrage</h1>
     <div class="space-y-4">
@@ -26,6 +30,7 @@
       <?php endforeach; ?>
     </div>
   </main>
+
   <?php include 'includes/footer.php'; ?>
 </body>
 </html>

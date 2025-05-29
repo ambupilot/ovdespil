@@ -2,7 +2,7 @@
 // includes/header.php
 ?>
 <header class="bg-[#00477e] text-white shadow p-4 flex items-center justify-between relative">
-  <img src="/logo.png" alt="Logo" class="h-12" />
+  <img src="/logo_de_spil.png" alt="Logo" class="h-12" />
 
   <!-- Hamburger icon -->
   <button id="menu-toggle" class="md:hidden focus:outline-none">

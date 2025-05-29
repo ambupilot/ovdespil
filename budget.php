@@ -39,7 +39,7 @@ $barColor = getBarColor($percentage);
   <main class="p-6 flex-grow max-w-3xl mx-auto">
     <h1 class="text-3xl font-bold mb-6 text-[#00477e]">Budgetoverzicht</h1>
 
-    <div class="mb-8">
+    <div class="mb-12">
       <div class="flex justify-between text-sm mb-1">
         <span>Totaal besteed budget</span>
         <span><?= $percentage ?>%</span>
@@ -52,7 +52,7 @@ $barColor = getBarColor($percentage);
         <span>Besteed: €<?= number_format($spent, 2, ',', '.') ?></span>
       </div>
     </div>
-<hr class="space-y-10"/>
+
     <div class="space-y-6">
       <?php foreach ($budget as $index => $item):
         $itemPercentage = $item['total'] > 0 ? round(min(100, ($item['spent'] / $item['total']) * 100)) : 0;

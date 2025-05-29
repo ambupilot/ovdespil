@@ -52,7 +52,7 @@ $barColor = getBarColor($percentage);
         <span>Besteed: €<?= number_format($spent, 2, ',', '.') ?></span>
       </div>
     </div>
-
+<hr/>
     <div class="space-y-6">
       <?php foreach ($budget as $index => $item):
         $itemPercentage = $item['total'] > 0 ? round(min(100, ($item['spent'] / $item['total']) * 100)) : 0;

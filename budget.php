@@ -61,7 +61,7 @@ $barColor = getBarColor($percentage);
       ?>
       <div>
         <div class="mb-1 font-semibold text-sm text-[#00477e] flex justify-between">
-          <span><?= htmlspecialchars($item['category']) ?></span>
+          <span><?= htmlspecialchars($item['category']) ?> (<?= '€' . number_format($item['total'], 2, ',', '.') ?>)</span>
           <span><?= $itemPercentage ?>%</span>
         </div>
         <div class="w-full bg-gray-200 h-4 rounded">

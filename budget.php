@@ -30,6 +30,7 @@ $barColor = getBarColor($percentage);
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .bar-fill {
+      width: 0%;
       transition: width 1.2s ease-in-out;
     }
   </style>
@@ -45,7 +46,7 @@ $barColor = getBarColor($percentage);
         <span><?= $percentage ?>%</span>
       </div>
       <div class="w-full bg-gray-200 h-5 rounded">
-        <div id="budget-bar" class="h-5 <?= $barColor ?> rounded bar-fill" style="width: 0%"></div>
+        <div id="budget-bar" class="h-5 <?= $barColor ?> rounded bar-fill"></div>
       </div>
       <div class="flex justify-between text-sm mt-2">
         <span>Beschikbaar: €<?= number_format($total - $spent, 2, ',', '.') ?></span>
@@ -64,7 +65,7 @@ $barColor = getBarColor($percentage);
           <span><?= $itemPercentage ?>%</span>
         </div>
         <div class="w-full bg-gray-200 h-4 rounded">
-          <div class="h-4 <?= $itemBarColor ?> rounded bar-fill" id="bar-<?= $index ?>" style="width: 0%"></div>
+          <div class="h-4 <?= $itemBarColor ?> rounded bar-fill" id="bar-<?= $index ?>"></div>
         </div>
         <div class="flex justify-between text-sm mt-1">
           <span>Beschikbaar: €<?= number_format($item['total'] - $item['spent'], 2, ',', '.') ?></span>
@@ -77,11 +78,22 @@ $barColor = getBarColor($percentage);
   <?php include 'includes/footer.php'; ?>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      document.getElementById('budget-bar').style.width = '<?= $percentage ?>%';
+      const totalBar = document.getElementById('budget-bar');
+      if (totalBar) {
+        setTimeout(() => {
+          totalBar.style.width = '<?= $percentage ?>%';
+        }, 100);
+      }
+
       <?php foreach ($budget as $index => $item):
         $itemPercentage = $item['total'] > 0 ? round(min(100, ($item['spent'] / $item['total']) * 100)) : 0;
       ?>
-      document.getElementById('bar-<?= $index ?>').style.width = '<?= $itemPercentage ?>%';
+      const bar<?= $index ?> = document.getElementById('bar-<?= $index ?>');
+      if (bar<?= $index ?>) {
+        setTimeout(() => {
+          bar<?= $index ?>.style.width = '<?= $itemPercentage ?>%';
+        }, 100);
+      }
       <?php endforeach; ?>
     });
   </script>

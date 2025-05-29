@@ -11,7 +11,7 @@ foreach ($budget as $item) {
   $spent += $item['spent'];
 }
 
-$percentage = $total > 0 ? round(($spent / $total) * 100) : 0;
+$percentage = $total > 0 ? round(min(100, ($spent / $total) * 100)) : 0;
 
 function getBarColor($percentage) {
   if ($percentage <= 85) return 'bg-[#00a651]';
@@ -55,7 +55,7 @@ $barColor = getBarColor($percentage);
 
     <div class="space-y-6">
       <?php foreach ($budget as $index => $item):
-        $itemPercentage = $item['total'] > 0 ? round(($item['spent'] / $item['total']) * 100) : 0;
+        $itemPercentage = $item['total'] > 0 ? round(min(100, ($item['spent'] / $item['total']) * 100)) : 0;
         $itemBarColor = getBarColor($itemPercentage);
       ?>
       <div>
@@ -79,7 +79,7 @@ $barColor = getBarColor($percentage);
     window.addEventListener('DOMContentLoaded', () => {
       document.getElementById('budget-bar').style.width = '<?= $percentage ?>%';
       <?php foreach ($budget as $index => $item):
-        $itemPercentage = $item['total'] > 0 ? round(($item['spent'] / $item['total']) * 100) : 0;
+        $itemPercentage = $item['total'] > 0 ? round(min(100, ($item['spent'] / $item['total']) * 100)) : 0;
       ?>
       document.getElementById('bar-<?= $index ?>').style.width = '<?= $itemPercentage ?>%';
       <?php endforeach; ?>

@@ -53,32 +53,36 @@ $barColor = getBarColor($percentage);
       </div>
     </div>
 
-    <table class="w-full table-auto border border-gray-300 bg-white shadow-sm">
-      <thead class="bg-[#e6f0fa]">
-        <tr>
-          <th class="p-3 border text-left">Categorie</th>
-          <th class="p-3 border text-left">Totaalbudget</th>
-          <th class="p-3 border text-left">Besteed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($budget as $item): ?>
-          <tr class="hover:bg-gray-100">
-            <td class="p-3 border"><?= htmlspecialchars($item['category']) ?></td>
-            <td class="p-3 border">€<?= number_format($item['total'], 2, ',', '.') ?></td>
-            <td class="p-3 border">€<?= number_format($item['spent'], 2, ',', '.') ?></td>
-          </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
+    <div class="space-y-6">
+      <?php foreach ($budget as $index => $item):
+        $itemPercentage = $item['total'] > 0 ? round(($item['spent'] / $item['total']) * 100) : 0;
+        $itemBarColor = getBarColor($itemPercentage);
+      ?>
+      <div>
+        <div class="mb-1 font-semibold text-sm text-[#00477e] flex justify-between">
+          <span><?= htmlspecialchars($item['category']) ?></span>
+          <span><?= $itemPercentage ?>%</span>
+        </div>
+        <div class="w-full bg-gray-200 h-4 rounded">
+          <div class="h-4 <?= $itemBarColor ?> rounded bar-fill" id="bar-<?= $index ?>" style="width: 0%"></div>
+        </div>
+        <div class="flex justify-between text-sm mt-1">
+          <span>Beschikbaar: €<?= number_format($item['total'] - $item['spent'], 2, ',', '.') ?></span>
+          <span>Besteed: €<?= number_format($item['spent'], 2, ',', '.') ?></span>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
   </main>
   <?php include 'includes/footer.php'; ?>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
-      const bar = document.getElementById('budget-bar');
-      if (bar) {
-        bar.style.width = '<?= $percentage ?>%';
-      }
+      document.getElementById('budget-bar').style.width = '<?= $percentage ?>%';
+      <?php foreach ($budget as $index => $item):
+        $itemPercentage = $item['total'] > 0 ? round(($item['spent'] / $item['total']) * 100) : 0;
+      ?>
+      document.getElementById('bar-<?= $index ?>').style.width = '<?= $itemPercentage ?>%';
+      <?php endforeach; ?>
     });
   </script>
 </body>

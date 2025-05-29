@@ -1,4 +1,14 @@
-<?php $link = include 'data/link.php'; ?>
+<?php 
+include 'includes/db.php';
+
+$linkStmt = $pdo->prepare("SELECT url FROM links WHERE type = ?");
+$linkStmt->execute(['ouderbijdrage']);
+$link = $linkStmt->fetchColumn();
+
+//$link = include 'data/link.php'; ?>
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>

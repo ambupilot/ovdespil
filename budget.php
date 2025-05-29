@@ -1,4 +1,12 @@
-<?php $budget = include 'data/budget.php'; ?>
+<?php 
+//$budget = include 'data/budget.php'; 
+include 'includes/db.php';
+
+$stmt = $pdo->query("SELECT * FROM budget");
+$budget = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="nl">
 <head>

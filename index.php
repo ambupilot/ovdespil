@@ -7,7 +7,7 @@ $stmt = $pdo->query("SELECT * FROM contributions");
 $contributions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 //$contributions = include 'data/contributions.php';
-
+ 
 ?>
 
 <!DOCTYPE html>

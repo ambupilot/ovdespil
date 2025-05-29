@@ -1,4 +1,4 @@
-<?php 
+<?php  
 //$budget = include 'data/budget.php'; 
 include 'includes/db.php';
 

@@ -6,7 +6,7 @@ $linkStmt->execute(['ouderbijdrage']);
 $link = $linkStmt->fetchColumn();
 
 //$link = include 'data/link.php'; ?>
-
+ 
 ?>
 
 <!DOCTYPE html>
